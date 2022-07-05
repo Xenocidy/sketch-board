@@ -11,9 +11,17 @@ function generateGrid(size) {
 
         for (let c = 0; c < size; c++) {
             let square = document.createElement('div');
-            row.appendChild(square);
-        }
 
+            square.style.width = (500 / size).toString() + 'px';
+            square.style.height = (500 / size).toString() + 'px';
+
+            // square.style.border = '2px solid black';
+            // square.style.backgroundColor = 'yellow';
+
+            row.appendChild(square);
+            row.style.height = (500 / size).toString() + 'px';
+        }
+        
         grid.appendChild(row);
     }
 
