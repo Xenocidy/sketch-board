@@ -1,5 +1,3 @@
-// import tinycolor from "tinycolor2";
-
 const hoverbtn = document.getElementById('hoverbtn');
 const clickbtn = document.getElementById('clickbtn');
 const clearbtn = document.getElementById('clearbtn');
@@ -10,7 +8,7 @@ const colorInput = document.getElementById('color');
 var color = "#00DAEA";
 var colorMode = false;
 
-// var color = tinycolor("red");
+var color = tinycolor("red");
 
 colorInput.addEventListener("input", function () {
     colorMode = "color";
@@ -90,9 +88,9 @@ function changeColor(event) {
     } else if (colorMode == "random") {
         event.target.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
     } else if (colorMode == "darken") {
-        console.log(tinycolor(color));
+        event.target.style.backgroundColor = tinycolor(event.target.style.backgroundColor).darken(5).toString();
     } else if (colorMode == "lighten") {
-
+        event.target.style.backgroundColor = tinycolor(event.target.style.backgroundColor).lighten(5).toString();
     }
 }
 
