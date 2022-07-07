@@ -1,5 +1,6 @@
 const hoverbtn = document.getElementById('hoverbtn');
 const clickbtn = document.getElementById('clickbtn');
+const clearbtn = document.getElementById('clearbtn');
 const colorInput = document.getElementById('color');
 var color = "#e66465";
 
@@ -13,7 +14,6 @@ hoverbtn.addEventListener('click', () => {
     /* Whenever the mouse go over the square in the grid, it changes color */
     for (let i = 0; i < squares.length; i++) {
         squares[i].addEventListener("mouseover", function( event ) {
-            console.log(color);
             event.target.style.backgroundColor = color;
           }, false);
     }
@@ -22,8 +22,19 @@ hoverbtn.addEventListener('click', () => {
 clickbtn.addEventListener('click', () => {
     let squares = document.getElementsByClassName('square');
     
+    /* Whenever the mouse go over the square in the grid, it changes color */
     for (let i = 0; i < squares.length; i++) {
-        squares[i].setAttribute('id', 'click');
+        squares[i].addEventListener("mousemove", function( event ) {
+            event.target.style.backgroundColor = color;
+          }, false);
+    }
+});
+
+clearbtn.addEventListener('click', () => {
+    let squares = document.getElementsByClassName('square');
+    
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = "black";
     }
 });
 
