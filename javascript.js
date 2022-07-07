@@ -1,12 +1,19 @@
 const hoverbtn = document.getElementById('hoverbtn');
 const clickbtn = document.getElementById('clickbtn');
 const clearbtn = document.getElementById('clearbtn');
+const randombtn = document.getElementById('random');
 const colorInput = document.getElementById('color');
-var color = "#e66465";
+var color = "#00DAEA";
+var random = false;
 
 colorInput.addEventListener("input", function () {
+    random = false;
     color = colorInput.value;
 }, false);
+
+randombtn.addEventListener('click', () => {
+    random = true;
+});
 
 hoverbtn.addEventListener('click', () => {
     let squares = document.getElementsByClassName('square');
@@ -24,10 +31,7 @@ clickbtn.addEventListener('click', () => {
 
     document.addEventListener('mouseup', stopColorMovement);
     for (let i = 0; i < squares.length; i++) {
-        // squares[i].addEventListener('mousedown', changeColor);
         squares[i].addEventListener('mousedown', startColorMovement);
-    
-        // squares[i].addEventListener('mousemove', changeColor);
     }
 });
 
@@ -40,10 +44,6 @@ clearbtn.addEventListener('click', () => {
     }
 });
 
-/**
- * It creates a grid of divs with the specified size
- * @param size - the number of rows and columns in the grid
- */
 function generateGrid(size) {
     const grid = document.getElementById('grid');
 
@@ -71,20 +71,27 @@ function generateGrid(size) {
 }
 
 function changeColor(event) {
-    event.target.style.backgroundColor = color;
+    if (random == false) {
+        event.target.style.backgroundColor = color;
+    } else if (random == true) {
+        event.target.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+    }
 }
 
+/**
+ * Activtates the event for click and drag over a square, which changes the color of the square.
+ */
 function startColorMovement() {
     let squares = document.getElementsByClassName('square');
 
     for (let i = 0; i < squares.length; i++) {
-        // squares[i].addEventListener('mousedown', changeColor);
-        //squares[i].addEventListener('mousedown', changeColorWhileMoving);
-    
         squares[i].addEventListener('mousemove', changeColor);
     }
 }
 
+/**
+ * Stop the event for click and drag over a square.
+ */
 function stopColorMovement() {
     let squares = document.getElementsByClassName('square');
 
@@ -100,6 +107,5 @@ function removeListeners() {
         squares[i].removeEventListener("mouseover", changeColor, false);
     }
 }
-
 
 generateGrid(30);
