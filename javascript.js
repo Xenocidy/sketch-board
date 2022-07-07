@@ -9,8 +9,6 @@ const colorInput = document.getElementById('color');
 var color = "#00DAEA";
 var colorMode = false;
 
-var color = tinycolor("red");
-
 colorInput.addEventListener("input", function () {
     colorMode = "color";
     color = colorInput.value;
@@ -37,7 +35,7 @@ hoverbtn.addEventListener('click', () => {
 
     /* Whenever the mouse go over the square in the grid, it changes color */
     for (let i = 0; i < squares.length; i++) {
-        squares[i].addEventListener("mouseover", changeColor, false);
+        squares[i].addEventListener("mouseover", changeColor);
     }
 });
 
@@ -46,7 +44,7 @@ clickbtn.addEventListener('click', () => {
 
     let squares = document.getElementsByClassName('square');
 
-    document.addEventListener('mouseup', stopColorMovement);
+    document.addEventListener('mouseup', removeListeners);
     for (let i = 0; i < squares.length; i++) {
         squares[i].addEventListener('mousedown', startColorMovement);
     }
@@ -108,18 +106,7 @@ function startColorMovement() {
     let squares = document.getElementsByClassName('square');
 
     for (let i = 0; i < squares.length; i++) {
-        squares[i].addEventListener('mousemove', changeColor);
-    }
-}
-
-/**
- * Stop the event for click and drag over a square.
- */
-function stopColorMovement() {
-    let squares = document.getElementsByClassName('square');
-
-    for (let i = 0; i < squares.length; i++) {
-        squares[i].removeEventListener('mousemove', changeColor);
+        squares[i].addEventListener('mouseover', changeColor);
     }
 }
 
@@ -127,7 +114,7 @@ function removeListeners() {
     let squares = document.getElementsByClassName('square');
 
     for (let i = 0; i < squares.length; i++) {
-        squares[i].removeEventListener("mouseover", changeColor, false);
+        squares[i].removeEventListener("mouseover", changeColor);
     }
 }
 
