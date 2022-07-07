@@ -4,13 +4,13 @@ const clearbtn = document.getElementById('clearbtn');
 const colorInput = document.getElementById('color');
 var color = "#e66465";
 
-colorInput.addEventListener("input", function(){
+colorInput.addEventListener("input", function () {
     color = colorInput.value;
-  }, false);
+}, false);
 
 hoverbtn.addEventListener('click', () => {
     let squares = document.getElementsByClassName('square');
-    
+
     /* Whenever the mouse go over the square in the grid, it changes color */
     for (let i = 0; i < squares.length; i++) {
         squares[i].addEventListener("mouseover", changeColor, false);
@@ -19,20 +19,22 @@ hoverbtn.addEventListener('click', () => {
 
 clickbtn.addEventListener('click', () => {
     removeListeners();
-    // let squares = document.getElementsByClassName('square');
+
+    let squares = document.getElementsByClassName('square');
+
+    document.addEventListener('mouseup', stopColorMovement);
+    for (let i = 0; i < squares.length; i++) {
+        // squares[i].addEventListener('mousedown', changeColor);
+        squares[i].addEventListener('mousedown', startColorMovement);
     
-    // /* Whenever the mouse go over the square in the grid, it changes color */
-    // for (let i = 0; i < squares.length; i++) {
-    //     squares[i].addEventListener("mousemove", function( event ) {
-    //         event.target.style.backgroundColor = color;
-    //       }, false);
-    // }
+        // squares[i].addEventListener('mousemove', changeColor);
+    }
 });
 
 /* Reset all cells to default color */
 clearbtn.addEventListener('click', () => {
     let squares = document.getElementsByClassName('square');
-    
+
     for (let i = 0; i < squares.length; i++) {
         squares[i].style.backgroundColor = "black";
     }
@@ -62,7 +64,7 @@ function generateGrid(size) {
             row.appendChild(square);
             row.style.height = (500 / size).toString() + 'px';
         }
-        
+
         grid.appendChild(row);
     }
 
@@ -72,13 +74,32 @@ function changeColor(event) {
     event.target.style.backgroundColor = color;
 }
 
+function startColorMovement() {
+    let squares = document.getElementsByClassName('square');
+
+    for (let i = 0; i < squares.length; i++) {
+        // squares[i].addEventListener('mousedown', changeColor);
+        //squares[i].addEventListener('mousedown', changeColorWhileMoving);
+    
+        squares[i].addEventListener('mousemove', changeColor);
+    }
+}
+
+function stopColorMovement() {
+    let squares = document.getElementsByClassName('square');
+
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].removeEventListener('mousemove', changeColor);
+    }
+}
+
 function removeListeners() {
     let squares = document.getElementsByClassName('square');
-    
+
     for (let i = 0; i < squares.length; i++) {
         squares[i].removeEventListener("mouseover", changeColor, false);
     }
 }
 
 
-generateGrid(80);
+generateGrid(30);
