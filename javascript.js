@@ -1,5 +1,11 @@
 const hoverbtn = document.getElementById('hoverbtn');
 const clickbtn = document.getElementById('clickbtn');
+const colorInput = document.getElementById('color');
+var color = "#e66465";
+
+colorInput.addEventListener("input", function(){
+    color = colorInput.value;
+  }, false);
 
 hoverbtn.addEventListener('click', () => {
     let squares = document.getElementsByClassName('square');
@@ -7,7 +13,8 @@ hoverbtn.addEventListener('click', () => {
     /* Whenever the mouse go over the square in the grid, it changes color */
     for (let i = 0; i < squares.length; i++) {
         squares[i].addEventListener("mouseover", function( event ) {
-            event.target.style.backgroundColor = "orange";
+            console.log(color);
+            event.target.style.backgroundColor = color;
           }, false);
     }
 });
@@ -38,7 +45,7 @@ function generateGrid(size) {
             square.style.width = (500 / size).toString() + 'px';
             square.style.height = (500 / size).toString() + 'px';
 
-            square.style.border = '1px solid white';
+            // square.style.border = '1px solid white';
             // square.style.backgroundColor = 'yellow';
 
             row.appendChild(square);
@@ -52,4 +59,4 @@ function generateGrid(size) {
 
 
 
-generateGrid(3);
+generateGrid(66);
