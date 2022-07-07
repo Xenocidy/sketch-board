@@ -4,6 +4,7 @@ const clearbtn = document.getElementById('clearbtn');
 const random = document.getElementById('random');
 const darken = document.getElementById('darken');
 const lighten = document.getElementById('lighten');
+const eraser = document.getElementById('eraser');
 const colorInput = document.getElementById('color');
 var color = "#00DAEA";
 var colorMode = false;
@@ -25,6 +26,10 @@ darken.addEventListener('click', () => {
 
 lighten.addEventListener('click', () => {
     colorMode = "lighten";
+});
+
+eraser.addEventListener('click', () => {
+    colorMode = "eraser";
 });
 
 hoverbtn.addEventListener('click', () => {
@@ -91,6 +96,8 @@ function changeColor(event) {
         event.target.style.backgroundColor = tinycolor(event.target.style.backgroundColor).darken(5).toString();
     } else if (colorMode == "lighten") {
         event.target.style.backgroundColor = tinycolor(event.target.style.backgroundColor).lighten(5).toString();
+    } else if (colorMode == "eraser") {
+        event.target.style.backgroundColor = "black";
     }
 }
 
