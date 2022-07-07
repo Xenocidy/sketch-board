@@ -1,18 +1,32 @@
+// import tinycolor from "tinycolor2";
+
 const hoverbtn = document.getElementById('hoverbtn');
 const clickbtn = document.getElementById('clickbtn');
 const clearbtn = document.getElementById('clearbtn');
-const randombtn = document.getElementById('random');
+const random = document.getElementById('random');
+const darken = document.getElementById('darken');
+const lighten = document.getElementById('lighten');
 const colorInput = document.getElementById('color');
 var color = "#00DAEA";
-var random = false;
+var colorMode = false;
+
+// var color = tinycolor("red");
 
 colorInput.addEventListener("input", function () {
-    random = false;
+    colorMode = "color";
     color = colorInput.value;
 }, false);
 
-randombtn.addEventListener('click', () => {
-    random = true;
+random.addEventListener('click', () => {
+    colorMode = "random";
+});
+
+darken.addEventListener('click', () => {
+    colorMode = "darken";
+});
+
+lighten.addEventListener('click', () => {
+    colorMode = "lighten";
 });
 
 hoverbtn.addEventListener('click', () => {
@@ -71,10 +85,14 @@ function generateGrid(size) {
 }
 
 function changeColor(event) {
-    if (random == false) {
+    if (colorMode == "color") {
         event.target.style.backgroundColor = color;
-    } else if (random == true) {
+    } else if (colorMode == "random") {
         event.target.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+    } else if (colorMode == "darken") {
+        console.log(tinycolor(color));
+    } else if (colorMode == "lighten") {
+
     }
 }
 
