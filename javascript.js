@@ -13,23 +13,23 @@ hoverbtn.addEventListener('click', () => {
     
     /* Whenever the mouse go over the square in the grid, it changes color */
     for (let i = 0; i < squares.length; i++) {
-        squares[i].addEventListener("mouseover", function( event ) {
-            event.target.style.backgroundColor = color;
-          }, false);
+        squares[i].addEventListener("mouseover", changeColor, false);
     }
 });
 
 clickbtn.addEventListener('click', () => {
-    let squares = document.getElementsByClassName('square');
+    removeListeners();
+    // let squares = document.getElementsByClassName('square');
     
-    /* Whenever the mouse go over the square in the grid, it changes color */
-    for (let i = 0; i < squares.length; i++) {
-        squares[i].addEventListener("mousemove", function( event ) {
-            event.target.style.backgroundColor = color;
-          }, false);
-    }
+    // /* Whenever the mouse go over the square in the grid, it changes color */
+    // for (let i = 0; i < squares.length; i++) {
+    //     squares[i].addEventListener("mousemove", function( event ) {
+    //         event.target.style.backgroundColor = color;
+    //       }, false);
+    // }
 });
 
+/* Reset all cells to default color */
 clearbtn.addEventListener('click', () => {
     let squares = document.getElementsByClassName('square');
     
@@ -68,6 +68,17 @@ function generateGrid(size) {
 
 }
 
+function changeColor(event) {
+    event.target.style.backgroundColor = color;
+}
+
+function removeListeners() {
+    let squares = document.getElementsByClassName('square');
+    
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].removeEventListener("mouseover", changeColor, false);
+    }
+}
 
 
-generateGrid(66);
+generateGrid(80);
