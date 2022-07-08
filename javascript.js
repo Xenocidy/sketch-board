@@ -7,7 +7,7 @@ const lighten = document.getElementById('lighten');
 const eraser = document.getElementById('eraser');
 const colorInput = document.getElementById('color');
 var color = "#00DAEA";
-var colorMode = false;
+var colorMode = "color";
 
 colorInput.addEventListener("input", function () {
     colorMode = "color";
