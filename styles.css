@@ -46,3 +46,10 @@ body {
     margin: 1vw;
 }
 
+#footer {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #333334;
+    font-size: 16px;
+    margin-top: 3vw;
+}
