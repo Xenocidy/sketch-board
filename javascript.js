@@ -55,7 +55,7 @@ clearbtn.addEventListener('click', () => {
     let squares = document.getElementsByClassName('square');
 
     for (let i = 0; i < squares.length; i++) {
-        squares[i].style.backgroundColor = "black";
+        squares[i].style.backgroundColor = "white";
     }
 });
 
@@ -95,7 +95,7 @@ function changeColor(event) {
     } else if (colorMode == "lighten") {
         event.target.style.backgroundColor = tinycolor(event.target.style.backgroundColor).lighten(5).toString();
     } else if (colorMode == "eraser") {
-        event.target.style.backgroundColor = "black";
+        event.target.style.backgroundColor = "white";
     }
 }
 

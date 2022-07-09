@@ -1,22 +1,41 @@
 body {
     margin: 0%;
+    background-color: #EDEDED;
 }
 
-#grid {
-    background-color: black;
-    height: 500px;
-    width: 500px;
+#title {
+    text-align: center;
 }
 
 #ui {
     display: flex;
+    justify-content: center;
 }
 
-#buttons {
-    display: flex;  
-    /* flex-direction: column; */
+#grid {
+    background-color: white;
+    height: 500px;
+    width: 500px;
+    box-shadow: 0 0 10px gray;
 }
 
 .row {
     display: flex;
 }
+
+#pen {
+    display: flex;  
+    flex-direction: column;
+    margin: 1vw;
+}
+
+#mouse {
+    display: flex;  
+    flex-direction: column;
+    margin: 1vw;
+}
+
+#clearbtn {
+    margin: 1vw;
+}
+
