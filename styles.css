@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 body {
     margin: 0%;
     background-color: #EDEDED;
@@ -5,6 +7,10 @@ body {
 
 #title {
     text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #333334;
+    font-size: 64px;
+    margin: 2vw;
 }
 
 #ui {
