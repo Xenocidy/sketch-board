@@ -72,9 +72,7 @@ function generateGrid(size) {
 
             square.style.width = (500 / size).toString() + 'px';
             square.style.height = (500 / size).toString() + 'px';
-
-            // square.style.border = '1px solid white';
-            // square.style.backgroundColor = 'yellow';
+            square.style.backgroundColor = "white";
 
             row.appendChild(square);
             row.style.height = (500 / size).toString() + 'px';
