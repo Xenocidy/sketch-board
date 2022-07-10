@@ -1,11 +1,5 @@
-const hoverbtn = document.getElementById('hoverbtn');
-const clickbtn = document.getElementById('clickbtn');
-const clearbtn = document.getElementById('clearbtn');
-const random = document.getElementById('random');
-const darken = document.getElementById('darken');
-const lighten = document.getElementById('lighten');
-const eraser = document.getElementById('eraser');
-const colorInput = document.getElementById('color');
+/* Initlization */
+
 const sizeInput = document.getElementById('sizeInput');
 var sizeDisplay = document.getElementsByClassName('sizeDisplay');
 sizeDisplay[0].innerHTML = sizeInput.value;
@@ -15,27 +9,35 @@ generateGrid(sizeInput.value);
 var color = "#00DAEA";
 var colorMode = "color";
 
+/* UI buttons and listeners */
+
+const colorInput = document.getElementById('color');
 colorInput.addEventListener("input", function () {
     colorMode = "color";
     color = colorInput.value;
 }, false);
 
+const random = document.getElementById('random');
 random.addEventListener('click', () => {
     colorMode = "random";
 });
 
+const darken = document.getElementById('darken');
 darken.addEventListener('click', () => {
     colorMode = "darken";
 });
 
+const lighten = document.getElementById('lighten');
 lighten.addEventListener('click', () => {
     colorMode = "lighten";
 });
 
+const eraser = document.getElementById('eraser');
 eraser.addEventListener('click', () => {
     colorMode = "eraser";
 });
 
+const hoverbtn = document.getElementById('hoverbtn');
 hoverbtn.addEventListener('click', () => {
     let squares = document.getElementsByClassName('square');
 
@@ -45,6 +47,7 @@ hoverbtn.addEventListener('click', () => {
     }
 });
 
+const clickbtn = document.getElementById('clickbtn');
 clickbtn.addEventListener('click', () => {
     removeListeners();
 
@@ -58,6 +61,7 @@ clickbtn.addEventListener('click', () => {
 });
 
 /* Reset all cells to default color */
+const clearbtn = document.getElementById('clearbtn');
 clearbtn.addEventListener('click', () => {
     let squares = document.getElementsByClassName('square');
 
@@ -65,6 +69,8 @@ clearbtn.addEventListener('click', () => {
         squares[i].style.backgroundColor = "white";
     }
 });
+
+/* Functions */
 
 function changeSize() {
     sizeDisplay[0].innerHTML = sizeInput.value;
@@ -113,9 +119,7 @@ function changeColor(event) {
     }
 }
 
-/**
- * Activtates the event for click and drag over a square, which changes the color of the square.
- */
+/* Activtates the event for click and drag over a square, which changes the color of the square. */
 function startColorMovement() {
     let squares = document.getElementsByClassName('square');
 
