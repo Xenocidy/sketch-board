@@ -11,6 +11,7 @@ var sizeDisplay = document.getElementsByClassName('sizeDisplay');
 sizeDisplay[0].innerHTML = sizeInput.value;
 sizeDisplay[1].innerHTML = sizeInput.value;
 generateGrid(sizeInput.value);
+
 var color = "#00DAEA";
 var colorMode = "color";
 
@@ -51,6 +52,7 @@ clickbtn.addEventListener('click', () => {
 
     document.addEventListener('mouseup', removeListeners);
     for (let i = 0; i < squares.length; i++) {
+        squares[i].addEventListener('mousedown', changeColor);
         squares[i].addEventListener('mousedown', startColorMovement);
     }
 });
