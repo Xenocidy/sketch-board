@@ -13,11 +13,11 @@ Allow the user to create pixel art using variety of tools, which includes:
 * Size slider: Choose between 1x1 up to 100x100
 
 # Technologies
-## Languages
+### Languages
 * HTML
 * CSS
 * Javascript
 
-## Third Party Resources
+### Third Party Resources
 * [TinyColor](https://github.com/bgrins/TinyColor)
 * [Google Fonts](https://fonts.google.com/)
