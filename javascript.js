@@ -6,6 +6,11 @@ const darken = document.getElementById('darken');
 const lighten = document.getElementById('lighten');
 const eraser = document.getElementById('eraser');
 const colorInput = document.getElementById('color');
+const sizeInput = document.getElementById('sizeInput');
+var sizeDisplay = document.getElementsByClassName('sizeDisplay');
+sizeDisplay[0].innerHTML = sizeInput.value;
+sizeDisplay[1].innerHTML = sizeInput.value;
+generateGrid(sizeInput.value);
 var color = "#00DAEA";
 var colorMode = "color";
 
@@ -59,8 +64,17 @@ clearbtn.addEventListener('click', () => {
     }
 });
 
+function changeSize() {
+    sizeDisplay[0].innerHTML = sizeInput.value;
+    sizeDisplay[1].innerHTML = sizeInput.value;
+    generateGrid(sizeInput.value);
+}
+
 function generateGrid(size) {
     const grid = document.getElementById('grid');
+    while (grid.firstChild) {
+        grid.removeChild(grid.lastChild);
+    }
 
     for (let r = 0; r < size; r++) {
         let row = document.createElement('div');
@@ -87,7 +101,7 @@ function changeColor(event) {
     if (colorMode == "color") {
         event.target.style.backgroundColor = color;
     } else if (colorMode == "random") {
-        event.target.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+        event.target.style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
     } else if (colorMode == "darken") {
         event.target.style.backgroundColor = tinycolor(event.target.style.backgroundColor).darken(5).toString();
     } else if (colorMode == "lighten") {
@@ -115,5 +129,3 @@ function removeListeners() {
         squares[i].removeEventListener("mouseover", changeColor);
     }
 }
-
-generateGrid(30);
