@@ -5,6 +5,7 @@ body {
     background-color: #EDEDED;
 }
 
+/* Sketch Board title */
 #title {
     text-align: center;
     font-family: 'Orbitron', sans-serif;
@@ -14,11 +15,30 @@ body {
     margin-top: 0%;
 }
 
+/* Left hand menu */
 #ui {
     display: flex;
     justify-content: center;
+    gap: 3vw;
 }
 
+button {
+    padding: 0.25vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    margin-bottom: 0.5vw;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    border: 1.5px solid #333334;
+}
+
+#options p {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+}
+
+/* Grid */
 #grid {
     background-color: white;
     height: 500px;
@@ -30,22 +50,34 @@ body {
     display: flex;
 }
 
+/* Pen option */
 #pen {
     display: flex;  
     flex-direction: column;
     margin: 1vw;
 }
 
+/* Mouse option */
 #mouse {
     display: flex;  
     flex-direction: column;
     margin: 1vw;
 }
 
-#clearbtn {
+/* Clear option */
+#clear {
+    display: flex;  
+    flex-direction: column;
     margin: 1vw;
 }
 
+/* Size slider */
+#sizeInput {
+    /* -webkit-appearance: none;
+    background: yellow; */
+}
+
+/* Footer */
 #footer {
     text-align: center;
     font-family: 'Orbitron', sans-serif;
