@@ -85,28 +85,32 @@ button:hover {
 
 /* Size slider */
 #sizeInput {
-    /* -webkit-appearance: none;
-    background: yellow; */
+    -webkit-appearance: none;
     width: 100%;
+    height: 8px;
+    background: #EDEDED;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid black;    
 }
 
 #sizeInput::-webkit-slider-thumb {
     -webkit-appearance: none;
-    /* Override default look */
     appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
     background: #333334;
-    /* Green background */
     cursor: pointer;
-    /* Cursor on hover */
 }
 
 #sizeInput::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
     background: #333334;
-    /* Green background */
     cursor: pointer;
-    /* Cursor on hover */
 }
-
 
 /* Footer */
 #footer {
