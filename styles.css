@@ -30,6 +30,11 @@ button {
     font-family: 'Orbitron', sans-serif;
     font-size: 20px;
     border: 1.5px solid #333334;
+    opacity: 0.6;
+}
+
+button:hover {
+    opacity: 1;
 }
 
 #options p {
@@ -52,30 +57,53 @@ button {
 
 /* Pen option */
 #pen {
-    display: flex;  
+    display: flex;
     flex-direction: column;
     margin: 1vw;
 }
 
 /* Mouse option */
 #mouse {
-    display: flex;  
+    display: flex;
     flex-direction: column;
     margin: 1vw;
 }
 
 /* Clear option */
 #clear {
-    display: flex;  
+    display: flex;
     flex-direction: column;
     margin: 1vw;
+}
+
+#clearbtn {
+    opacity: 1;
 }
 
 /* Size slider */
 #sizeInput {
     /* -webkit-appearance: none;
     background: yellow; */
+    width: 100%;
 }
+
+#sizeInput::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    background: #333334;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+}
+
+#sizeInput::-moz-range-thumb {
+    background: #333334;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+}
+
 
 /* Footer */
 #footer {
