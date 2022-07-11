@@ -19,26 +19,47 @@ colorInput.addEventListener("input", function () {
 
 const random = document.getElementById('random');
 random.addEventListener('click', () => {
+    resetPen();
+    random.style.backgroundColor = '#333334';
+    random.style.color = 'white';
+    random.style.opacity = 1;
     colorMode = "random";
 });
 
 const darken = document.getElementById('darken');
 darken.addEventListener('click', () => {
+    resetPen();
+    darken.style.backgroundColor = '#333334';
+    darken.style.color = 'white';
+    darken.style.opacity = 1;
     colorMode = "darken";
 });
 
 const lighten = document.getElementById('lighten');
 lighten.addEventListener('click', () => {
+    resetPen();
+    lighten.style.backgroundColor = '#333334';
+    lighten.style.color = 'white';
+    lighten.style.opacity = 1;
     colorMode = "lighten";
 });
 
 const eraser = document.getElementById('eraser');
 eraser.addEventListener('click', () => {
+    resetPen();
+    eraser.style.backgroundColor = '#333334';
+    eraser.style.color = 'white';
+    eraser.style.opacity = 1;
     colorMode = "eraser";
 });
 
 const hoverbtn = document.getElementById('hoverbtn');
 hoverbtn.addEventListener('click', () => {
+    resetMouse();
+    hoverbtn.style.backgroundColor = '#333334';
+    hoverbtn.style.color = 'white';
+    hoverbtn.style.opacity = 1;
+
     let squares = document.getElementsByClassName('square');
 
     /* Whenever the mouse go over the square in the grid, it changes color */
@@ -49,6 +70,10 @@ hoverbtn.addEventListener('click', () => {
 
 const clickbtn = document.getElementById('clickbtn');
 clickbtn.addEventListener('click', () => {
+    resetMouse();
+    clickbtn.style.backgroundColor = '#333334';
+    clickbtn.style.color = 'white';
+    clickbtn.style.opacity = 1;
     removeListeners();
 
     let squares = document.getElementsByClassName('square');
@@ -76,6 +101,7 @@ function changeSize() {
     sizeDisplay[0].innerHTML = sizeInput.value;
     sizeDisplay[1].innerHTML = sizeInput.value;
     generateGrid(sizeInput.value);
+    resetMouse();
 }
 
 function generateGrid(size) {
@@ -134,4 +160,32 @@ function removeListeners() {
     for (let i = 0; i < squares.length; i++) {
         squares[i].removeEventListener("mouseover", changeColor);
     }
+}
+
+function resetPen() {
+    random.style.backgroundColor = '#EDEDED';
+    darken.style.backgroundColor = '#EDEDED';
+    lighten.style.backgroundColor = '#EDEDED';
+    eraser.style.backgroundColor = '#EDEDED';
+
+    random.style.color = 'black';
+    darken.style.color = 'black';
+    lighten.style.color = 'black';
+    eraser.style.color = 'black';
+
+    random.style.opacity = 0.6;
+    darken.style.opacity = 0.6;
+    lighten.style.opacity = 0.6;
+    eraser.style.opacity = 0.6;
+}
+
+function resetMouse() {
+    hoverbtn.style.backgroundColor = '#EDEDED';
+    clickbtn.style.backgroundColor = '#EDEDED';
+
+    hoverbtn.style.color = 'black';
+    clickbtn.style.color = 'black';
+
+    hoverbtn.style.opacity = 0.6;
+    clickbtn.style.opacity = 0.6;
 }
