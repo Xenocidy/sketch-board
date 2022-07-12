@@ -57,10 +57,12 @@ eraser.addEventListener('click', () => {
 
 const hoverbtn = document.getElementById('hoverbtn');
 hoverbtn.addEventListener('click', () => {
+    console.log("hover");
     resetMouse();
     hoverbtn.style.backgroundColor = '#333334';
     hoverbtn.style.color = 'white';
     hoverbtn.style.opacity = 1;
+    removeClickListeners();
 
     let squares = document.getElementsByClassName('square');
 
@@ -72,6 +74,7 @@ hoverbtn.addEventListener('click', () => {
 
 const clickbtn = document.getElementById('clickbtn');
 clickbtn.addEventListener('click', () => {
+    console.log("click");
     resetMouse();
     clickbtn.style.backgroundColor = '#333334';
     clickbtn.style.color = 'white';
@@ -153,6 +156,17 @@ function startColorMovement() {
 
     for (let i = 0; i < squares.length; i++) {
         squares[i].addEventListener('mouseover', changeColor);
+    }
+}
+
+function removeClickListeners() {
+    document.removeEventListener('mouseup', removeListeners);
+
+    let squares = document.getElementsByClassName('square');
+
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].removeEventListener('mousedown', changeColor);
+        squares[i].removeEventListener('mousedown', startColorMovement);
     }
 }
 
