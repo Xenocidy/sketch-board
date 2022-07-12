@@ -6,13 +6,15 @@ sizeDisplay[0].innerHTML = sizeInput.value;
 sizeDisplay[1].innerHTML = sizeInput.value;
 generateGrid(sizeInput.value);
 
-var color = "#00DAEA";
+var color = "#333334";
 var colorMode = "color";
 
 /* UI buttons and listeners */
 
 const colorInput = document.getElementById('color');
 colorInput.addEventListener("input", function () {
+    resetPen();
+    colorInput.style.opacity = 1;
     colorMode = "color";
     color = colorInput.value;
 }, false);
@@ -173,6 +175,7 @@ function resetPen() {
     lighten.style.color = 'black';
     eraser.style.color = 'black';
 
+    colorInput.style.opacity = 0.6;
     random.style.opacity = 0.6;
     darken.style.opacity = 0.6;
     lighten.style.opacity = 0.6;
