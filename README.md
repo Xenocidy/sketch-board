@@ -12,11 +12,11 @@ Allow the user to create pixel art using variety of tools, which includes:
 * Clear button: Reset the canvas back to blank
 * Size slider: Choose between 1x1 up to 100x100
 
-:link: [Link to assignment](https://www.theodinproject.com/lessons/foundations-etch-a-sketch)
-
 Future add-ons:
 * Import button: Allow user to incorporate an image of their own
 * Export button: Allow user to save their work
+
+:link: [Link to assignment](https://www.theodinproject.com/lessons/foundations-etch-a-sketch)
 
 # Technologies
 ### Languages
